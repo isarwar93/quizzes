@@ -50,8 +50,7 @@ int* runningSum(int* nums, int numsSize, int* returnSize)
         sum = nums[i]+sum;
 
     }
-    *returnSize = (sizeof(arr)*sizeof(int));
-
+    *returnSize = (numsSize);
     return arr;
 }
 
@@ -67,8 +66,8 @@ int main()
     int *array = runningSum(x,sizeof(x)/sizeof(int),&y);
 
     printf("y:%d :\n",y);
-    for(int z = 0;z < 5;z++)
+    for(int z = 0;z < y;z++)
     {
-        printf("array[]:%d \n",array[z]);
+        printf("array:%d \n",array[z]);
     }
 }

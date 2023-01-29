@@ -42,18 +42,16 @@ Constraints:
  //Note: The returned array must be malloced, assume caller calls free().
 int* runningSum(int* nums, int numsSize, int* returnSize)
 {       
-
-    int *arr = malloc(sizeof(int)*numsSize);
-    //memcpy(nums,arr);
+    int *arr =(int*) malloc(sizeof(int)*numsSize);
     int sum = 0;
-    for (int i = 0; i<numsSize-1; i++)
+    for (int i = 0; i<numsSize; i++)
     {
         arr[i] =  nums[i]+sum;
-        sum = arr[i]+sum;
+        sum = nums[i]+sum;
 
     }
-    returnSize = malloc(sizeof(int)*2);
-    returnSize[0] = (sizeof(arr));
+    *returnSize = (sizeof(arr)*sizeof(int));
+
     return arr;
 }
 
@@ -62,15 +60,15 @@ int* runningSum(int* nums, int numsSize, int* returnSize)
 
 int main()
 {
-    printf("hello_world!!!\n");
-    int x[5] = {1,2,3,4,5};
-    //int y = 0;
-    int *y;
-    int*array = runningSum(x,sizeof(x)/sizeof(int),y);
-    printf("y[0]:%d \n",y);
+    int x[5] = {3,1,2,10,1};
+
+    int y=0;
+    printf("x size: %d\n",sizeof(x));
+    int *array = runningSum(x,sizeof(x)/sizeof(int),&y);
+
+    printf("y:%d :\n",y);
     for(int z = 0;z < 5;z++)
     {
         printf("array[]:%d \n",array[z]);
     }
-    //runningSum[i] = sum(nums[0]…nums[i])
 }

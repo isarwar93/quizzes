@@ -42,6 +42,7 @@ char ** fizzBuzz(int n, int* returnSize)
         if ((i+1)%3 == 0 && (i+1)%5 ==0)
         {
             a[i] = (char*)malloc(9*sizeof(char));
+            //As it is first element of the string therefore strcpy needs to be done
             strcpy(a[i],"FizzBuzz");
         }
         else if ((i+1)%3 == 0 )

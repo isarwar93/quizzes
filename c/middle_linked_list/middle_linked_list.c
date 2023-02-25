@@ -103,19 +103,19 @@ int main()
     second->val = 2; // assign data to second node
     second->next = third;
 
-    third->val = 3; // assign data in first node
+    third->val = 3; // assign data in third node
     third->next = forth; // Link first node with second
   
-    forth->val = 4; // assign data to second node
+    forth->val = 4; // assign data to forth node
     forth->next = fifth;
 
-    fifth->val = 5; // assign data in first node
+    fifth->val = 5; // assign data in fifth node
     fifth->next = sixth; // Link first node with second
   
-    sixth->val = 6; // assign data to second node
+    sixth->val = 6; // assign data to sixth node
     sixth->next = seventh;
   
-    seventh->val = 7; // assign data to third node
+    seventh->val = 7; // assign data to seventh node
     seventh->next = NULL;
 
     print_linked_list(head);

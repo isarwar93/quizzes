@@ -26,45 +26,44 @@ Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13"
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+ #include <stdio.h>
+ #include<stdlib.h>
+#include <string.h>
+
 char ** fizzBuzz(int n, int* returnSize)
 {
-    char **array;
-    int ret_size = 0;
-    array = calloc(n+1,sizeof(char*));
+    char **a;
+    a = (char**)malloc((n)*sizeof(char*));
     for (int i = 0; i<n;i++)
-    {
+    {  
         if ((i+1)%3 == 0 && (i+1)%5 ==0)
         {
-            ret_size = ret_size+9;
-            array[i] = calloc(9,sizeof(char));
-            strcat(array[i],"FizzBuzz");
+            a[i] = (char*)malloc(9*sizeof(char));
+            strcpy(a[i],"FizzBuzz");
         }
         else if ((i+1)%3 == 0 )
         {
-            ret_size = ret_size+5;
-            array[i] = calloc(5,sizeof(char));
-            strcat(array[i],"Fizz");
+            a[i] = (char*)malloc(5*sizeof(char));
+            strcpy(a[i],"Fizz");
         }
         else if ((i+1)%5 == 0)
         {
-            ret_size =ret_size+5;
-            array[i] = calloc(5,sizeof(char));
-            strcat(array[i],"Buzz");
+            a[i] = malloc(5*sizeof(char));
+            strcpy(a[i],"Buzz");
         }
         else
         { 
-            ret_size = ret_size+4;
-            array[i] = calloc(4,sizeof(char));
+            a[i] = (char*)malloc(5*sizeof(char));
             char temp[5];
-            temp[4]='\0';
-           
-            sprintf(temp, "%d", i+1);
-            strcat(array[i],temp);
+            sprintf(temp, "%d", (i+1));
+            strcpy(a[i],temp);
         }
-        *returnSize=ret_size;
     }
-    array[n]='\0';
-    return array;
+    *returnSize = n;
+    return a;
 }
 
 int main()
